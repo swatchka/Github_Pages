@@ -1,6 +1,6 @@
 # YOONSUNG ARCHIVE — React + Vite GitHub Pages Gallery
 
-GIF와 이미지를 전시하는 사이버/네온 스타일의 **React + Vite** 갤러리 페이지입니다.
+GIF와 이미지를 전시하는 블루 아카이브 스타일의 **React + Vite** 갤러리 페이지입니다.
 
 ## 폴더 구조
 
@@ -15,8 +15,8 @@ GIF와 이미지를 전시하는 사이버/네온 스타일의 **React + Vite** 
 │   ├── components/
 │   │   ├── Header.jsx             # 헤더 & 필터 & 상단 버튼 슬롯
 │   │   ├── GalleryCard.jsx        # 미디어 카드 & 카드 버튼 슬롯
-│   │   └── Lightbox.jsx           # 확대 보기 모달 & 모달 버튼 슬롯
-│   ├── styles/theme.css           # 사이버/네온 스타일시트
+│   │   └── Lightbox.jsx           # 전체화면 미리보기 & 모달 버튼 슬롯
+│   ├── styles/theme.css           # 블루 아카이브 스타일시트
 │   └── utils/media.js             # 미디어 타입/경로 유틸리티
 ├── index.html
 ├── package.json
