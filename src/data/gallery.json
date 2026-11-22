@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "YOONSUNG ARCHIVE",
+    "subtitle": "GIF & Image Showcase // Schale Media Vault",
+    "status": "ONLINE",
+    "background": [
+      "assets/images/background/pv1.gif",
+      "assets/images/background/pv2.gif"
+    ],
+    "backgroundInterval": 9000
+  },
+  "items": [
+    {
+      "file": "assets/images/hikari.gif"
+    },
+    {
+      "file": "assets/images/hikari2.gif"
+    },
+    {
+      "file": "assets/images/hikari.gif"
+    },
+    {
+      "file": "assets/images/hikari2.gif"
+    },
+    {
+      "file": "assets/images/hikari.gif"
+    },
+    {
+      "file": "assets/images/hikari2.gif"
+    },
+    {
+      "file": "assets/images/hikari.gif"
+    },
+    {
+      "file": "assets/images/hikari2.gif"
+    }
+  ]
+}

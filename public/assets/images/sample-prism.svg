@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#141835" />
+      <stop offset="100%" stop-color="#05060c" />
+    </radialGradient>
+    <linearGradient id="neonStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00f5ff" />
+      <stop offset="50%" stop-color="#9d4edd" />
+      <stop offset="100%" stop-color="#ff2a85" />
+    </linearGradient>
+    <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)" />
+
+  <!-- Subtle rings -->
+  <circle cx="400" cy="250" r="190" fill="none" stroke="#00f5ff" stroke-opacity="0.14" stroke-dasharray="6 10" stroke-width="1.5" />
+  <circle cx="400" cy="250" r="145" fill="none" stroke="#ff2a85" stroke-opacity="0.22" stroke-width="1.5" />
+
+  <!-- Outer Hexagon -->
+  <polygon
+    points="400,72 554,161 554,339 400,428 246,339 246,161"
+    fill="rgba(0,245,255,0.04)"
+    stroke="url(#neonStroke)"
+    stroke-width="3"
+    filter="url(#neonGlow)"
+  />
+
+  <!-- Inner Inverted Triangle & Diamond -->
+  <polygon
+    points="400,118 518,322 282,322"
+    fill="rgba(255,42,133,0.07)"
+    stroke="#00f5ff"
+    stroke-width="2.2"
+    filter="url(#neonGlow)"
+  />
+  <polygon
+    points="400,382 518,178 282,178"
+    fill="rgba(157,78,221,0.08)"
+    stroke="#ff2a85"
+    stroke-width="2.2"
+    filter="url(#neonGlow)"
+  />
+
+  <!-- Core -->
+  <circle cx="400" cy="250" r="24" fill="#00f5ff" opacity="0.25" filter="url(#neonGlow)" />
+  <circle cx="400" cy="250" r="10" fill="#eef4ff" filter="url(#neonGlow)" />
+
+  <!-- HUD Corner Accents -->
+  <g stroke="#00f5ff" stroke-opacity="0.55" stroke-width="2" fill="none">
+    <path d="M28,54 L28,28 L54,28" />
+    <path d="M746,28 L772,28 L772,54" />
+    <path d="M28,446 L28,472 L54,472" />
+    <path d="M746,472 L772,472 L772,446" />
+  </g>
+
+  <text x="52" y="456" fill="#9aa7c7" font-family="monospace" font-size="13" letter-spacing="4">
+    PRISM CORE // 0xFF2A85
+  </text>
+</svg>
