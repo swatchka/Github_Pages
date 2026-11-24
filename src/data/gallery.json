@@ -9,6 +9,11 @@
     ],
     "backgroundInterval": 9000
   },
+  "guruGuru": {
+    "label": "Guru Guru",
+    "file": "assets/images/GawrGura.gif",
+    "durationMs": 2600
+  },
   "items": [
     {
       "file": "assets/images/hikari.gif"
