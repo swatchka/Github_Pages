@@ -3,6 +3,7 @@ import Header from './components/Header.jsx';
 import GalleryCard from './components/GalleryCard.jsx';
 import Lightbox from './components/Lightbox.jsx';
 import GuruGuruWidget from './components/GuruGuruWidget.jsx';
+import SurvivorGame from './components/SurvivorGame.jsx';
 import galleryData from './data/gallery.json';
 import { normalizeMediaItem, resolveAssetUrl, resolveMediaType } from './utils/media.js';
 
@@ -32,6 +33,7 @@ export default function App() {
     ? galleryData.items.map(normalizeMediaItem)
     : [];
 
+  const [viewMode, setViewMode] = useState('gallery'); // 'gallery' | 'game'
   const [bgIndex, setBgIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightboxIndex, setLightboxIndex] = useState(-1);
@@ -66,6 +68,12 @@ export default function App() {
   const handleFilterChange = useCallback((nextFilter) => {
     setActiveFilter(nextFilter);
     setLightboxIndex(-1);
+    setViewMode('gallery');
+  }, []);
+
+  const handleToggleGame = useCallback(() => {
+    setLightboxIndex(-1);
+    setViewMode((prev) => (prev === 'game' ? 'gallery' : 'game'));
   }, []);
 
   const handleCloseLightbox = useCallback(() => {
@@ -85,6 +93,8 @@ export default function App() {
       filteredItems.length > 0 ? (prev + 1) % filteredItems.length : -1,
     );
   }, [filteredItems.length]);
+
+  const isGameMode = viewMode === 'game';
 
   return (
     <>
@@ -120,13 +130,25 @@ export default function App() {
         <Header
           site={site}
           itemCount={filteredItems.length}
-          activeFilter={activeFilter}
+          activeFilter={isGameMode ? '' : activeFilter}
           onFilterChange={handleFilterChange}
-          actionSlot={null}
+          actionSlot={
+            <button
+              type="button"
+              className={`ba-btn ${isGameMode ? 'is-active' : 'ba-btn--yellow'}`}
+              onClick={handleToggleGame}
+            >
+              <span className="ba-btn-label">
+                {isGameMode ? '← GALLERY' : 'GAME'}
+              </span>
+            </button>
+          }
         />
 
         <main className="gallery-section">
-          {filteredItems.length === 0 ? (
+          {isGameMode ? (
+            <SurvivorGame />
+          ) : filteredItems.length === 0 ? (
             <div className="empty-state">
               <p className="mono">[ NO DATA ]</p>
               <p className="empty-desc">표시할 이미지나 GIF가 없습니다.</p>
@@ -152,7 +174,7 @@ export default function App() {
         </footer>
       </div>
 
-      <GuruGuruWidget config={galleryData?.guruGuru} />
+      {!isGameMode && <GuruGuruWidget config={galleryData?.guruGuru} />}
 
       <Lightbox
         item={activeItem}
