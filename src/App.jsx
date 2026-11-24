@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Header from './components/Header.jsx';
 import GalleryCard from './components/GalleryCard.jsx';
 import Lightbox from './components/Lightbox.jsx';
+import GuruGuruWidget from './components/GuruGuruWidget.jsx';
 import galleryData from './data/gallery.json';
 import { normalizeMediaItem, resolveAssetUrl, resolveMediaType } from './utils/media.js';
 
@@ -150,6 +151,8 @@ export default function App() {
           <span className="mono">DATA: src/data/gallery.json</span>
         </footer>
       </div>
+
+      <GuruGuruWidget config={galleryData?.guruGuru} />
 
       <Lightbox
         item={activeItem}
